@@ -1,4 +1,4 @@
-name: "Merge on lgtm label"
+name: "Merge on approved label"
 on:
   schedule:
   - cron: "0 * * * *"
