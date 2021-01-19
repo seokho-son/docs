@@ -32,7 +32,7 @@ jobs:
           labels: |
             approved
   automerge:
-    if: ${{ github.event.issue.pull_request }}
+    if: ${{ github.event.issue.pull_request && startsWith(github.event.comment.body, '/approve') }}
     runs-on: ubuntu-latest
     steps:
       - name: automerge
