@@ -21,13 +21,13 @@ on:
   status: {}
 jobs:
   automerge:
-    if: ${{ github.event.issue.pull_request }}
+    if: ${{ github.event.issue.pull_request && github.event.comment.author_association == 'OWNER' }}
     runs-on: ubuntu-latest
     steps:
-      - name: just echo a message
+      - name: Check author_association
         run: |
           echo Hello there!
-          echo ${{ github.event.comment.author_association }}
+          echo author_association is ${{ github.event.comment.author_association }}
           
       - uses: actions/checkout@v2
       - uses: actions-ecosystem/action-add-labels@v1
