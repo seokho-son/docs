@@ -39,7 +39,7 @@ jobs:
         uses: "pascalgn/automerge-action@v0.13.0"
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-          MERGE_LABELS: "approved,lgtm,!wip"
+          MERGE_LABELS: "lgtm,!wip"
           MERGE_REMOVE_LABELS: "automerge"
           MERGE_METHOD: "merge"
           MERGE_COMMIT_MESSAGE: "pull-request-description"
