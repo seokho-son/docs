@@ -1,5 +1,1 @@
-# docs
-Cloud-Barista Documentation
-
-good
-echo test
+# Prow and AutoMerge GitHub Workflow Demo
