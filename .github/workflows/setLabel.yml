@@ -9,9 +9,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions-ecosystem/action-add-labels@v1
-        if: ${{ startsWith(github.event.comment.body, '/add-labels') }}
+        if: ${{ startsWith(github.event.comment.body, '/approve') }}
         with:
           github_token: ${{ secrets.github_token }}
           labels: |
-            documentation
-            changelog
+            approved
