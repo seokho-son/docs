@@ -9,8 +9,8 @@ jobs:
     steps:
       - uses: jpmcb/prow-github-actions@v1.1.2
         with:
-          jobs: 'approve'
+          jobs: 'lgtm'
           github-token: "${{ secrets.GITHUB_TOKEN }}"
 
           # this is optional and defaults to 'merge'
-          merge-method: '-'
+          merge-method: 'merge'
