@@ -2,23 +2,6 @@ name: automerge
 on:
   issue_comment:
     types: [created]
-  pull_request:
-    types:
-      - labeled
-      - unlabeled
-      - synchronize
-      - opened
-      - edited
-      - ready_for_review
-      - reopened
-      - unlocked
-  pull_request_review:
-    types:
-      - submitted
-  check_suite:
-    types:
-      - completed
-  status: {}
 jobs:
   automerge:
     if: ${{ github.event.issue.pull_request && github.event.comment.author_association == 'OWNER' }}
@@ -26,8 +9,8 @@ jobs:
     steps:
       - name: Check author_association
         run: |
-          echo Hello there!
           echo author_association is ${{ github.event.comment.author_association }}
+          echo Hello, this workflow is allowed to OWNERS.
           
       - uses: actions/checkout@v2
       - uses: actions-ecosystem/action-add-labels@v1
