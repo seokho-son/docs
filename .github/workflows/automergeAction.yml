@@ -27,7 +27,7 @@ jobs:
       - name: just echo a message
         run: |
           echo Hello there!
-          echo ${{ github.event.comment.user }}
+          echo ${{ github.event.comment.author_association }}
           
       - uses: actions/checkout@v2
       - uses: actions-ecosystem/action-add-labels@v1
