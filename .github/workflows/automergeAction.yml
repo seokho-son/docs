@@ -24,7 +24,6 @@ jobs:
     if: ${{ github.event.issue.pull_request }}
     runs-on: ubuntu-latest
     steps:
-      - name: add-approve-label
       - uses: actions/checkout@v2
       - uses: actions-ecosystem/action-add-labels@v1
         if: ${{ startsWith(github.event.comment.body, '/approve') }}
@@ -32,6 +31,7 @@ jobs:
           github_token: ${{ secrets.github_token }}
           labels: |
             approved
+            
       - name: automerge-lgtm-approved
         uses: "pascalgn/automerge-action@v0.13.0"
         env:
