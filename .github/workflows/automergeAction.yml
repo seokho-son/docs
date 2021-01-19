@@ -20,6 +20,17 @@ on:
       - completed
   status: {}
 jobs:
+  add_labels:
+    if: ${{ github.event.issue.pull_request }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions-ecosystem/action-add-labels@v1
+        if: ${{ startsWith(github.event.comment.body, '/approve') }}
+        with:
+          github_token: ${{ secrets.github_token }}
+          labels: |
+            approved
   automerge:
     if: ${{ github.event.issue.pull_request }}
     runs-on: ubuntu-latest
