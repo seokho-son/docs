@@ -1,0 +1,14 @@
+name: "Set Approved Label"
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: Naturalclar/issue-action@v1.0.0
+        with:
+          keywords: '["/approve", "/approved"]'
+          labels: '["approved"]'
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
