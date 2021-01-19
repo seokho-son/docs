@@ -1,5 +1,7 @@
 name: automerge
 on:
+  issue_comment:
+    types: [created]
   pull_request:
     types:
       - labeled
@@ -19,6 +21,7 @@ on:
   status: {}
 jobs:
   automerge:
+    if: ${{ github.event.issue.pull_request }}
     runs-on: ubuntu-latest
     steps:
       - name: automerge
