@@ -24,6 +24,11 @@ jobs:
     if: ${{ github.event.issue.pull_request }}
     runs-on: ubuntu-latest
     steps:
+      - name: just echo a message
+        run: |
+          echo Hello there!
+          echo ${{ github.event.comment.body }}
+          
       - uses: actions/checkout@v2
       - uses: actions-ecosystem/action-add-labels@v1
         if: ${{ startsWith(github.event.comment.body, '/approve') }}
