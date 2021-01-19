@@ -4,11 +4,14 @@ on:
     types: [created]
 
 jobs:
-  test:
+  add_labels:
     runs-on: ubuntu-latest
     steps:
-      - uses: Naturalclar/issue-action@v1.0.0
+      - uses: actions/checkout@v2
+      - uses: actions-ecosystem/action-add-labels@v1
+        if: ${{ startsWith(github.event.comment.body, '/add-labels') }}
         with:
-          keywords: '["approve"]'
-          labels: '["approved"]'
-          github-token: "${{ secrets.GITHUB_TOKEN }}"
+          github_token: ${{ secrets.github_token }}
+          labels: |
+            documentation
+            changelog
